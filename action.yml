@@ -1,4 +1,4 @@
-name: 'WeighIn'
+name: 'Byteforge-Dapp'
 description: 'Measure and diff Soroban contract resource costs on pull requests (Linux x64, protocol 28)'
 author: 'Ijioma Makwochukwu'
 

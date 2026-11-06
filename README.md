@@ -1,6 +1,6 @@
-# WeighIn
+# Byteforge-Dapp
 
-WeighIn benchmarks configured Soroban contract functions in BASE and HEAD,
+Byteforge-Dapp benchmarks configured Soroban contract functions in BASE and HEAD,
 compares their resource usage, and fails a GitHub Action when a configured policy
 is violated. It is for contract maintainers who want resource regressions visible
 in pull requests.
@@ -9,10 +9,10 @@ in pull requests.
 SDK 28.0.0, Stellar CLI 28.1.0 and Rust 1.95.0. See
 [verified evidence](docs/EVIDENCE.md) and [known limitations](docs/KNOWN_LIMITATIONS.md).
 
-## Why WeighIn
+## Why Byteforge-Dapp
 
 A contract change can preserve its interface while increasing metered compute,
-memory, footprint or write usage. WeighIn compares repeatable fixture cases so
+memory, footprint or write usage. Byteforge-Dapp compares repeatable fixture cases so
 maintainers can review those changes and choose which increases should block CI.
 These are Soroban simulation resources, not hardware performance or fee estimates.
 
@@ -310,7 +310,7 @@ accounts. See [source-account effects](docs/source-account-effects.md).
 
 ## Evidence
 
-[WeighIn Evidence](docs/EVIDENCE.md) links hosted control/regression/threshold
+[Byteforge-Dapp Evidence](docs/EVIDENCE.md) links hosted control/regression/threshold
 proof, raw RPC/native captures, five clean builds and five measurements per case.
 Evidence conclusions are bounded by the recorded environment.
 [Hosted Soroban Forge validation](docs/hosted-soroban-forge.md) additionally proves
@@ -324,6 +324,34 @@ event and return attribution.
 
 [Known limitations](docs/KNOWN_LIMITATIONS.md) covers protocol/platform scope,
 state/auth/randomness, custom builds, fixture types, CLI and GitHub behavior.
+
+## Repository Architecture
+
+The codebase is partitioned into two core components:
+- **`frontend/`**: The TypeScript CI toolkit, containing the GitHub Action entrypoints (`action.yml`, `comment/action.yml`), CLI tooling, benchmark comparison logic, reporting, and full test suites.
+- **`contracts/`**: The Soroban smart contract workspace hosting benchmark contracts (`contracts/contract/`).
+
+Backwards compatibility symlinks are preserved at the repository root (`src`, `contract`, `scripts`, `comment`) so that existing CI configurations, workflows, and scripts execute cleanly from either the repository root or inside `frontend/`.
+
+### Frontend Build
+```bash
+# From repository root:
+npm run build
+npm run bundle
+npm test
+
+# Or directly from frontend/:
+cd frontend
+npm run build
+npm run bundle
+npm test
+```
+
+### Contracts
+```bash
+cd contracts
+cargo check
+```
 
 ## Development
 

@@ -31321,7 +31321,7 @@ var require_toml = __commonJS({
   }
 });
 
-// src/action.ts
+// frontend/src/action.ts
 var core3 = __toESM(require_core());
 var exec7 = __toESM(require_exec());
 init_github();
@@ -31329,12 +31329,12 @@ var fs8 = __toESM(require("fs"));
 var path9 = __toESM(require("path"));
 var os3 = __toESM(require("os"));
 
-// src/measurement.ts
+// frontend/src/measurement.ts
 var fs4 = __toESM(require("fs"));
 var path5 = __toESM(require("path"));
 var crypto3 = __toESM(require("crypto"));
 
-// src/identity.ts
+// frontend/src/identity.ts
 var path = __toESM(require("path"));
 
 // node_modules/zod/v4/classic/external.js
@@ -51054,7 +51054,7 @@ function date4(params) {
   return _coercedDate(ZodDate, params);
 }
 
-// src/record-schema.ts
+// frontend/src/record-schema.ts
 var METRIC_KEYS = [
   "cpu_instructions",
   "memory_bytes",
@@ -51812,7 +51812,7 @@ function validateBenchmarkComparisonCompatibility(baseFn, headFn) {
   }
 }
 
-// src/diff.ts
+// frontend/src/diff.ts
 var AGGREGATE_METRIC_DESCRIPTIONS = {
   cpu_instructions: "Cumulative CPU Instructions",
   memory_bytes: "Cumulative Invocation Memory Bytes (sum of invocation costs, not peak concurrent memory)",
@@ -52207,7 +52207,7 @@ function diffBenchmarks(base, head, config3) {
   return diff;
 }
 
-// src/config.ts
+// frontend/src/config.ts
 var RuleValueSchema = external_exports.union([
   external_exports.number(),
   external_exports.string().refine(
@@ -52463,7 +52463,7 @@ function formatZodError(error63, fileName) {
   return lines.join("\n");
 }
 
-// src/identity.ts
+// frontend/src/identity.ts
 function relativePath(value) {
   const portable = value.replace(/\\/g, "/");
   if (path.posix.isAbsolute(portable) || /^[A-Za-z]:/.test(portable)) {
@@ -52522,7 +52522,7 @@ function parseFixtures(raw, fixturePath) {
   return { ...fixtures, fixture_id, contracts };
 }
 
-// src/sdk-version.ts
+// frontend/src/sdk-version.ts
 var fs = __toESM(require("fs"));
 var path2 = __toESM(require("path"));
 function findOwningLock(wasmPath) {
@@ -69350,7 +69350,7 @@ var RpcServer = class {
   }
 };
 
-// src/endpoint.ts
+// frontend/src/endpoint.ts
 var REDACTED_VALUE = "REDACTED";
 var INVALID_ENDPOINT = "[invalid endpoint]";
 function isRecord(value) {
@@ -69442,7 +69442,7 @@ function redactEndpointSecrets(message, rawUrl) {
   return result;
 }
 
-// src/account.ts
+// frontend/src/account.ts
 var DEADLINE_MS = 12e4;
 var REQUEST_MS = 15e3;
 var RETRY_MS = 2e3;
@@ -69590,7 +69590,7 @@ async function ensureAccountReady(rpcUrl, publicKey, signal) {
   );
 }
 
-// src/deployer-key.ts
+// frontend/src/deployer-key.ts
 var fs2 = __toESM(require("fs"));
 var os = __toESM(require("os"));
 var path3 = __toESM(require("path"));
@@ -69616,11 +69616,11 @@ async function acquireDeployerKey(suppliedKeyFile) {
   };
 }
 
-// src/network.ts
+// frontend/src/network.ts
 var SUPPORTED_NETWORK_PASSPHRASE = "Standalone Network ; February 2017";
 var SUPPORTED_PROTOCOL_VERSION = 28;
 
-// src/simulation.ts
+// frontend/src/simulation.ts
 var fs3 = __toESM(require("fs"));
 var path4 = __toESM(require("path"));
 var crypto2 = __toESM(require("crypto"));
@@ -70497,7 +70497,7 @@ async function measureInvocation(rpcUrl, transaction, helperPath, options) {
   throw exhaustionError;
 }
 
-// src/setup-plan.ts
+// frontend/src/setup-plan.ts
 var SCVAL_ARM = {
   address: "scvAddress",
   bool: "scvBool",
@@ -70650,7 +70650,7 @@ function resolveBinding(binding, declaredType, result) {
   return value;
 }
 
-// src/measurement.ts
+// frontend/src/measurement.ts
 var DEFAULT_RPC_URL = "http://localhost:8000/rpc";
 function metricsFromSimulation(output2, limits) {
   validateFootprintKeys(
@@ -71443,7 +71443,7 @@ Setup of ${contractSpec.logical_id} failed; aborted dependents: ${aborted2.map((
   return results;
 }
 
-// src/threshold.ts
+// frontend/src/threshold.ts
 var TOML = __toESM(require_toml());
 var crypto4 = __toESM(require("crypto"));
 var percentage = external_exports.number().finite().nonnegative();
@@ -71872,7 +71872,7 @@ function resolveEffectivePolicy(diff, config3, origin) {
   };
 }
 
-// src/comment.ts
+// frontend/src/comment.ts
 var COMMENT_MARKER = "<!-- weighin-report -->";
 async function findReportComment(octokit, owner, repo, issueNumber, marker = COMMENT_MARKER, expectedAuthorId) {
   for await (const response of octokit.paginate.iterator(
@@ -72312,11 +72312,11 @@ function renderComment(diff, violations, baseRef, headSha, policyOrigin) {
   return lines.join("\n");
 }
 
-// src/build-selection.ts
+// frontend/src/build-selection.ts
 var core = __toESM(require_core());
 var exec3 = __toESM(require_exec());
 
-// src/build.ts
+// frontend/src/build.ts
 var fs5 = __toESM(require("fs"));
 var path6 = __toESM(require("path"));
 var os2 = __toESM(require("os"));
@@ -72812,7 +72812,7 @@ async function buildContracts(fixturesPathOrOptions, workspaceRoot, rustToolchai
   return results;
 }
 
-// src/build-selection.ts
+// frontend/src/build-selection.ts
 function parseOptionalBooleanInput(name, defaultValue = false) {
   const raw = core.getInput(name);
   if (!raw) {
@@ -72840,7 +72840,7 @@ async function buildForRevision(fixturesPath, worktreeRoot, rustToolchain, build
   await buildContracts(fixturesPath, worktreeRoot, rustToolchain);
 }
 
-// src/report.ts
+// frontend/src/report.ts
 var crypto5 = __toESM(require("crypto"));
 var fs6 = __toESM(require("fs"));
 var path7 = __toESM(require("path"));
@@ -72935,7 +72935,7 @@ function generateFailureReport(errorMessage) {
   ].join("\n");
 }
 
-// src/output-paths.ts
+// frontend/src/output-paths.ts
 var fs7 = __toESM(require("fs"));
 var path8 = __toESM(require("path"));
 function realTarget(p) {
@@ -72994,7 +72994,7 @@ function assertDistinctOutputPaths(check2) {
   }
 }
 
-// src/pr-metadata.ts
+// frontend/src/pr-metadata.ts
 var PR_METADATA_SCHEMA_VERSION = 1;
 function buildPrMetadata(repository, prNumber, headSha) {
   return {
@@ -73005,7 +73005,7 @@ function buildPrMetadata(repository, prNumber, headSha) {
   };
 }
 
-// src/git-utils.ts
+// frontend/src/git-utils.ts
 var exec5 = __toESM(require_exec());
 async function capture(cmd, args, cwd) {
   let out = "";
@@ -73072,7 +73072,7 @@ async function getHeadSha(dir) {
   }
 }
 
-// src/action.ts
+// frontend/src/action.ts
 var configuredRpcUrl = "";
 var outputPathsRejected = false;
 var validatedDiffJson = null;

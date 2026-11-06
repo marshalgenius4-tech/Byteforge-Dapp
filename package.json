@@ -5,7 +5,8 @@
   "main": "dist/measurement.js",
   "types": "dist/measurement.d.ts",
   "bin": {
-    "weighin": "dist/cli.js"
+    "weighin": "dist/cli.js",
+    "byteforge-dapp": "dist/cli.js"
   },
   "scripts": {
     "prepack": "npm run build && npm run bundle && node dist/dependency-inventory.js --quiet",

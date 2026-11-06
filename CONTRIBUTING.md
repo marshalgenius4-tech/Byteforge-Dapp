@@ -1,6 +1,6 @@
-# Contributing to WeighIn
+# Contributing to Byteforge-Dapp
 
-WeighIn is a TypeScript Action/measurement CLI with a Rust Soroban simulation
+Byteforge-Dapp is a TypeScript Action/measurement CLI with a Rust Soroban simulation
 helper. Start with [README](README.md), [architecture](docs/architecture.md),
 [evidence](docs/EVIDENCE.md) and [limitations](docs/KNOWN_LIMITATIONS.md).
 
@@ -19,7 +19,7 @@ JavaScript tests do not need Docker or a live RPC. Native replay/integration nee
 Linux x64, Rust 1.95.0 and native build prerequisites. Contract integration also
 needs `wasm32v1-none`, checksum-verified Stellar CLI 28.1.0 and Docker. Provision
 these as shown in [the proof workflow](.github/workflows/flagship-proof.yml).
-WeighIn does not install the Rust or Stellar toolchains itself.
+Byteforge-Dapp does not install the Rust or Stellar toolchains itself.
 
 ## Quality gates
 

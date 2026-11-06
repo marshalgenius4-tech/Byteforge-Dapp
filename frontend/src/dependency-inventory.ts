@@ -594,7 +594,10 @@ export function generateDependencyInventory(
       ),
     );
     for (const [bundlePath, bundleText] of bundleContents) {
-      if (bundleText.includes(`// ${location}/`)) {
+      if (
+        bundleText.includes(`// ${location}/`) ||
+        bundleText.includes(`// ../${location}/`)
+      ) {
         group.bundleEvidence.add(bundlePath);
       }
     }

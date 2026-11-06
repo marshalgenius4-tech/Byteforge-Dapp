@@ -1,5 +1,5 @@
-name: 'WeighIn Comment'
-description: 'Post the WeighIn benchmark report to a pull request'
+name: 'Byteforge-Dapp Comment'
+description: 'Post the Byteforge-Dapp benchmark report to a pull request'
 inputs:
   report-path:
     description: 'Path to the generated Markdown report'

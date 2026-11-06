@@ -26280,12 +26280,12 @@ var init_github = __esm({
   }
 });
 
-// src/comment-action.ts
+// frontend/src/comment-action.ts
 var core = __toESM(require_core());
 init_github();
 var fs = __toESM(require("fs"));
 
-// src/pr-metadata.ts
+// frontend/src/pr-metadata.ts
 var PR_METADATA_SCHEMA_VERSION = 1;
 var SHA_PATTERN = /^[0-9a-f]{40}$/i;
 function parsePrMetadata(raw, expectedRepository) {
@@ -26333,7 +26333,7 @@ function parsePrMetadata(raw, expectedRepository) {
   };
 }
 
-// src/pr-freshness.ts
+// frontend/src/pr-freshness.ts
 var SHA_PATTERN2 = /^[0-9a-f]{40}$/i;
 var short = (sha) => sha.slice(0, 8);
 function requireSha(value, label) {
@@ -26370,7 +26370,7 @@ async function evaluateReportFreshness(input, source) {
   return assessFreshness(producer, current);
 }
 
-// src/pr-revision-source.ts
+// frontend/src/pr-revision-source.ts
 function createOctokitRevisionSource(octokit, owner, repo) {
   return {
     async getCurrentHeadSha(prNumber) {
@@ -26392,7 +26392,7 @@ function createOctokitRevisionSource(octokit, owner, repo) {
   };
 }
 
-// src/record-schema.ts
+// frontend/src/record-schema.ts
 var METRIC_KEYS = [
   "cpu_instructions",
   "memory_bytes",
@@ -26408,7 +26408,7 @@ var METRIC_KEYS = [
 ];
 var METRIC_KEY_SET = new Set(METRIC_KEYS);
 
-// src/comment.ts
+// frontend/src/comment.ts
 var COMMENT_MARKER = "<!-- weighin-report -->";
 async function findReportComment(octokit, owner, repo, issueNumber, marker = COMMENT_MARKER, expectedAuthorId) {
   for await (const response of octokit.paginate.iterator(
@@ -26522,7 +26522,7 @@ async function upsertPrComment(token, numberOrBody, bodyOrOptions, maybeOptions)
   }
 }
 
-// src/comment-action.ts
+// frontend/src/comment-action.ts
 async function reportSkipped(reason) {
   core.warning(reason);
   if (process.env.GITHUB_STEP_SUMMARY) {
